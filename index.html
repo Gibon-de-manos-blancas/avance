@@ -3,17 +3,64 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <!-- COMMON TAGS -->
+<title>Volando por la selva</title>
+<!-- Search Engine -->
+<meta name="description" content="Infografía sobre el gibón de manos blancas">
+<meta name="image" content="https://gibon-de-manos-blancas.github.io/taller/archivos/braquiacion.jpg">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Volando por la selva">
+<meta itemprop="description" content="Infografía sobre el gibón de manos blancas">
+<meta itemprop="image" content="https://gibon-de-manos-blancas.github.io/taller/archivos/braquiacion.jpg">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Volando por la selva">
+<meta name="twitter:description" content="Infografía sobre el gibón de manos blancas">
+<meta name="twitter:image:src" content="https://gibon-de-manos-blancas.github.io/taller/archivos/braquiacion.jpg">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Volando por la selva">
+<meta name="og:description" content="Infografía sobre el gibón de manos blancas">
+<meta name="og:image" content="https://gibon-de-manos-blancas.github.io/taller/archivos/braquiacion.jpg">
+<meta name="og:url" content="https://gibon-de-manos-blancas.github.io/taller/">
+<meta name="og:site_name" content="Volando por la selva">
+<meta name="og:locale" content="es_CL">
+<meta name="og:type" content="website">
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
         <style>
-            /* AHORA VAMOS A IMPORTAR, DE UN VIAJE, DOS FUENTES Y SUS RESPECTIVOS PESOS */
+            /* PODEMOS IMPORTAR, DE UN VIAJE, DOS FUENTES Y SUS RESPECTIVOS PESOS 
+IMPORTANTE ANOTAR QUÉ PESO SE VA A UTILIZAR, SE DEBEN IMPORTAR LOS ESTILOS (ITÁLICA, NEGRITA, ETC)
+GOOGLE FONTS*/
 
             @import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;1,400&display=swap");
 
-            /* vamos a contradecir a Bootstrap, partiendo por la fuente tipográfica y afectando sus variables --> https://getbootstrap.com/docs/5.1/customize/css-variables/  */
+            /* 
+            Vamos a contradecir a Bootstrap, partiendo con un par de variables
+            1) La que define la familia tipográfica que se aplica por defecto
+            2) La que define un color que podríamos reutilizar
+            thin ---- 100
+            light ---- 200
+            book ---- 300
+            normal ---- 400
+            semibold ---- 600
+            bold ---- 700
+            heavy ---- 900
+            */
 
             :root {
                 --bs-body-font-family: "Roboto", sans-serif;
-                --bs-primary: #f70;
+                --bs-primary: #ff0000 !important; /*cambiamos el color (pelotas, vínculos, barra nombre técnico) - color original #e65100*/
+            }
+
+            a {
+                color: #222; /*colores simplificados #222222 otra forma de escribir los colores rgb(255,255,255) o rgba (255,255,255,0.5) donde a es alpha, simil a la opacidad que va desde 0 a 1*/
+                text-decoration: underline;
+                transition: color ease 0.5s;
+            }
+            a:hover {
+                color: var(--bs-primary);
+                text-decoration: none;
+                transition: color ease 0.5s;
             }
 
             /* vamos a ajustar los pesos de algunos títulos a lo que dispone la fuente  */
@@ -36,7 +83,10 @@
 
             /* AQUÍ HAGO UN AJUSTE IDIOMÁTICO:  EL GRINGO ENFATIZA CON ITÁLICA. EN CASTELLANO NO LO HACEMOS ASÍ, ENFATIZAMOS CON PESO DE FUENTE, MANTENIENDO UN ESTILO NORMAL */
 
-            strong, b, em {
+            strong,
+            b,
+            em {
+                /*b = bold, em = emphasis que en inglés suele usar itálica, entonces lo cambio a normal*/
                 font-weight: 500;
                 font-style: normal;
             }
@@ -44,7 +94,7 @@
             /* definiré un tamaño del título de primer nivel (h1) que se ajuste según el viewport width --> https://www.yunbitsoftware.com/blog/2017/06/22/viewport-units-css-que-es/ */
 
             h1 {
-                font-size: calc(3rem + 3vw);
+                font-size: calc(2rem + 2vw); /*Gibón de manos blancas necesita que sea 2vw, el original era 3*/
             }
 
             /* repetiré el truco anterior con el título de segundo nivel (h2), que, a diferencia del anterior, puedo ocupar varias veces en la misma página */
@@ -66,46 +116,115 @@
                 font-size: calc(1.5rem + 1vw);
             }
 
+            /* HOMERO */
+
             @keyframes corre {
-                0%{left: 0; position: absolute;}
-                100%{left: calc(100% - 60px); position: absolute;}
+                0% {
+                    margin-left: -30vw;
+                }
+                100% {
+                    margin-left: 90vw;
+                }
             }
 
-            #lento{
-                animation: corre 10s normal forwards;
-            }
-
-            #veloz{
-                animation: corre 5s normal forwards;
+            #homero {
+                animation: corre 5s infinite;
             }
         </style>
 
         <!--ESTO SERVIRÁ PARA COMPARAR UN ANTES Y UN DESPUÉS-->
         <link href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css" rel="stylesheet" />
-
-        <title>Gibón_de_manos_blancas_ejercicio_3</title>
     </head>
     <body>
         <!--ESTE ES EL ENCABEZADO-->
         <header class="container">
+             <img src="archivos/braquiacion.jpg" alt="Ilustración gibón desplazándose" class="w-100 my-3" />
+
             <div class="row">
                 <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-
-                    <h2 class="text-center mt-5 fst-italic"><span class="px-2 py-1">Hylobates lar</span></h2>
+                    <h2 class="text-center fst-italic mt-5"><span class="px-2 py-1">Hylobates lar</span></h2>
 
                     <h1 class="text-center py-3">Gibón de manos blancas</h1>
 
-                    <p class="lead"><em>Endémico de las selvas del sudeste asiático</em>, este mamífero acrobático esta perfectamente adaptado a la vida arbórea por lo que muy pocas veces desciende al suelo. Su movimiento pendular llamado braquiación le permite desplazarse.</p>
+                    <p class="lead">
+                        <em>Endémico de las selvas del sudeste asiático</em>, este mamífero acrobático esta perfectamente adaptado a la vida arbórea por lo que muy pocas veces desciende al suelo. Su movimiento pendular llamado braquiación le permite desplazarse.
+                    </p>
 
-                    <p><em>El gibón es un primate de la familia de los hiobatidos</em>. Pertenece a la familia de los grandes primates compuesta por lo gorilas, los bonobos, los orangutanes, los chimpancés y, por supuesto, los gibones.
-Como el ser humano y los demás grandes primates, forma parte de los hominodos.</p>
+                    <p>
+                        <em>El gibón es un primate de la familia de los hiobatidos</em>. Pertenece a la familia de los grandes primates compuesta por lo gorilas, los bonobos, los orangutanes, los chimpancés y, por supuesto, los gibones. Como el ser humano y los demás grandes primates, forma parte de los hominodos.
+                    </p>
 
-                    <div class="text-center py-3 px-3 px-sm-2 px-md-1 px-lg-0">
-                        <!--Este elemento es afectado con JavaScript-->
-                        <object data="files/conservacion_lc.svg" type="image/svg+xml" id="conservacion"></object>
-                        <!--Vean más abajo, las líneas 249 a 266-->
+                    <div class="row">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" class="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 col-xxl-6 my-3 mx-auto">
+                            <style type="text/css">
+                                line,
+                                path {
+                                    fill: none;
+                                    stroke: #777777;
+                                    stroke-linecap: round;
+                                }
+                                .blanco {
+                                    fill: #ffffff;
+                                    font-size: 45px;
+                                }
+                                .gris {
+                                    fill: #777777;
+                                    font-size: 35px;
+                                }
+                                .no {
+                                    fill: #999999;
+                                }
+                                .si {
+                                    fill: var(--bs-primary);
+                                }
+                            </style>
+                            <g id="ex">
+                                <circle class="no" cx="82.1" cy="250" r="45" />
+                                <text transform="matrix(1 0 0 1 54 265)" class="blanco">EX</text>
+                            </g>
+                            <g id="ew">
+                                <circle class="no" cx="212.6" cy="250" r="45" />
+                                <text transform="matrix(1 0 0 1 180 265)" class="blanco">EW</text>
+                            </g>
+                            <g id="cr">
+                                <circle class="no" cx="342.9" cy="250" r="45" />
+                                <text transform="matrix(1 0 0 1 313 265)" class="blanco">CR</text>
+                            </g>
+                            <g id="en">
+                                <circle class="si" cx="473.6" cy="250" r="45" />
+                                <text transform="matrix(1 0 0 1 444 265)" class="blanco">EN</text>
+                            </g>
+                            <g id="vu">
+                                <circle class="no" cx="603.8" cy="250" r="45" />
+                                <text transform="matrix(1 0 0 1 574 265)" class="blanco">VU</text>
+                            </g>
+                            <g id="nt">
+                                <circle class="no" cx="734.1" cy="250" r="45" />
+                                <text transform="matrix(1 0 0 1 705 265)" class="blanco">NT</text>
+                            </g>
+                            <g id="lc">
+                                <circle class="no" cx="865.6" cy="250" r="45" />
+                                <text transform="matrix(1 0 0 1 840 265)" class="blanco">LC</text>
+                            </g>
+                            <g id="datos">
+                                <text transform="matrix(1 0 0 1 29.8186 54.2935)" class="gris">Extinto</text>
+                                <text transform="matrix(1 0 0 1 382.5784 54.2935)" class="gris">Amenazado</text>
+                                <text transform="matrix(1 0 0 1 760.9694 54.2935)" class="gris">Preocupación</text>
+                                <text transform="matrix(1 0 0 1 812.2867 95.3477)" class="gris">menor</text>
+                                <line class="st6" x1="865.6" y1="119.4" x2="865.6" y2="162.5" />
+                                <line class="st6" x1="82.1" y1="77.9" x2="82.1" y2="162.5" />
+                                <path
+                                    class="st6"
+                                    d="M279.3,162.5v-55.2c0-6,4.8-10.8,10.8-10.8h161.1c4.4,0,7.9-0.3,10.4-0.9c2.6-0.5,5-1.9,7-3.8 c2.6-3.3,4.1-6,4.3-8.6c0.2,2.6,1.7,5.3,4.3,8.6c2.1,2.1,4.4,3.3,7,3.8c2.6,0.5,6.2,0.9,10.4,0.9h163.2c6,0,10.8,4.8,10.8,10.8v55.2"
+                                />
+                            </g>
+                        </svg>
                     </div>
 
+                    <!--Muestra al gibón chico o el grande, pero carga ambos. Falta modificar los datos que se muestran-->
+                    <object data="archivos/gibon-chico.svg" type="image/svg+xml" class="hover-md-none"></object>
+                    <object data="archivos/gibon-grande.svg" type="image/svg+xml" class="d-none d-md-block"></object>
+                    <!--Se muestra o no por una clase de Bootstrap que responde al ancho de pantalla-->
                     <!--Muestra el chucao chico o el grando, pero carga ambos-->
                     <object data="img/Gibon_ejercicio_3.svg" type="image/svg+xml" class="d-md-none"></object>
                     <object data="img/Gibon_ejercicio_3.svg" type="image/svg+xml" class="d-none d-md-block"></object>
@@ -123,20 +242,15 @@ Como el ser humano y los demás grandes primates, forma parte de los hominodos.<
                             <label class="form-check-label" for="elSwitch">Gibones cantando</label>
                         </div>
                     </div>
-                    <!--Suena con JavaScript, ver líneas 267 a 278-->
                 </div>
             </div>
         </header>
-        <!--ESTE ES EL CONTENIDO PRINCIPAL-->
-        <main>
+        <!--ESTE ES EL CONTENIDO PRINCIPAL, ESTÁ DIVIVIDO EN VARIAS SECCIONES-->
+        <main class="pb-5">
             <section class="container-fluid g-0">
                 <div class="row g-0">
                     <div class="col-12 py-3">
                         <h3 class="text-center pt-5 pb-2">Presencia</h3>
-
-
-
-
                         <!--VAMOS A INCLUIR TRES SVG EN UN CARRUSEL-->
                         <div id="carruselConMapa" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
                             <div class="carousel-indicators">
@@ -168,132 +282,286 @@ Como el ser humano y los demás grandes primates, forma parte de los hominodos.<
                     </div>
                 </div>
             </section>
-            <section class="container">
+            <!--SECCIÓN YUXTAPUESTA-->
+            <section class="container" id="seccion_yuxtapuesta">
                 <div class="row">
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
-                        <p>Su alto grado de adaptación al entorno arbóreo lo ha vuelto vulnerable. Este ágil y atlético primate, cuya dieta se basa en casi un 50% de frutas, necesita de grandes extensiones de bosques. Su anatomía perfectamente adaptada para  moverse y recorrer esas distancia, no le sirve para moverse en tierra firme y tampoco sabe nadar. Esto hace que cuando en el bosque aparecen claro, no pueda desplazarse.</p>
+                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                        <h3 class="text-center mt-5 mb-3">Sección yuxtapuesta</h3>
+                        <div id="yuxtaposicion" class="my-3">
+                            <img src="archivos/humano-esqueleto.jpg" alt="describa…" />
+                            <img src="archivos/gibon-esqueleto.jpg" alt="describa…" />
+                        </div>
+                        <p>
+                            Este es un lorem ipsum dolor sit amet, consectetur adipiscing elit. Pero no es un loren ipsum para papel, es para pantalla, donde
+                            <a href="https://www.nngroup.com/articles/how-users-read-on-the-web/" target="_blank" title="How Users Read on the Web">es recomendable</a> <em>destacar palabras clave</em>, ofrecer
+                            <a href="https://www.nngroup.com/videos/plain-language-for-experts/" target="_blank" title="Plain Language For Everyone, Even Experts">una idea por párrafo</a> (que sea clara para
+                            <a href="https://www.nngroup.com/videos/biggest-mistake-writing-web/" target="_blank" title="The Biggest Mistake in Writing for the Web">tu público objetivo</a>) y usar el estilo de pirámide invertida (incluyendo
+                            en cada pirámide lo que se acaba de <a href="https://youtu.be/iEB3oILm-qQ?t=2063" target="_blank" title="Charla del Dr. Mario García">mostrar o se mostrará</a> a continuación).
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!--SECCIÓN CARRUSEL-->
+            <section id="seccion_ancha">
+                <div class="container-fluid g-0">
+                    <div class="row g-0">
+                        <div class="col-12">
+                            <h3 class="text-center my-3">Sección Carrusel</h3>
+                            <!--VAMOS A INCLUIR TRES SVG EN UN CARRUSEL-->
+                            <div id="carruselConMapa" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active" data-bs-interval="1000">
+                                        <object class="d-block w-100" data="archivos/colores-1.svg" type="image/svg+xml"></object>
+                                        <div class="carousel-caption">
+                                            <h5>1950</h5>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" data-bs-interval="1000">
+                                        <object class="d-block w-100" data="archivos/colores-2.svg" type="image/svg+xml"></object>
+                                        <div class="carousel-caption">
+                                            <h5>1970</h5>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" data-bs-interval="1000">
+                                        <object class="d-block w-100" data="archivos/colores-3.svg" type="image/svg+xml"></object>
+                                        <div class="carousel-caption">
+                                            <h5>2000</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto my-5">
+                            <p>
+                                Este es un lorem ipsum dolor sit amet, consectetur adipiscing elit. Pero no es un loren ipsum para papel, es para pantalla, donde
+                                <a href="https://www.nngroup.com/articles/how-users-read-on-the-web/" target="_blank" title="How Users Read on the Web">es recomendable</a> <em>destacar palabras clave</em>, ofrecer
+                                <a href="https://www.nngroup.com/videos/plain-language-for-experts/" target="_blank" title="Plain Language For Everyone, Even Experts">una idea por párrafo</a> (que sea clara para
+                                <a href="https://www.nngroup.com/videos/biggest-mistake-writing-web/" target="_blank" title="The Biggest Mistake in Writing for the Web">tu público objetivo</a>) y usar el estilo de pirámide invertida
+                                (incluyendo en cada pirámide lo que se acaba de <a href="https://youtu.be/iEB3oILm-qQ?t=2063" target="_blank" title="Charla del Dr. Mario García">mostrar o se mostrará</a> a continuación).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--SECCIÓN CRÁNEO-->
+            <section class="container" id="seccion_comparativa">
+                <div class="row">
+                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                        <h3 class="text-center mt-5 mb-3">Sección cráneo</h3>
+                        <!--AGREGO CRÁNEO EN 3D-->
+                        <div class="sketchfab-embed-wrapper">
+                            <iframe
+                                title="White-handed gibbon skull and mandible"
+                                frameborder="0"
+                                allowfullscreen
+                                mozallowfullscreen="true"
+                                webkitallowfullscreen="true"
+                                allow="autoplay; fullscreen; xr-spatial-tracking"
+                                xr-spatial-tracking
+                                execution-while-out-of-viewport
+                                execution-while-not-rendered
+                                web-share
+                                src="https://sketchfab.com/models/d7b97787ea1a4d8eae8f7ff83370be80/embed"
+                            >
+                            </iframe>
+                            <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4a4a4a;">
+                                <a
+                                    href="https://sketchfab.com/3d-models/white-handed-gibbon-skull-and-mandible-d7b97787ea1a4d8eae8f7ff83370be80?utm_medium=embed&utm_campaign=share-popup&utm_content=d7b97787ea1a4d8eae8f7ff83370be80">
+                                    Cráneo y mandíbula</a>
+                                 por
+                                <a href="https://sketchfab.com/FloridaMuseum?utm_medium=embed&utm_campaign=share-popup&utm_content=d7b97787ea1a4d8eae8f7ff83370be80">
+                                    FloridaMuseum
+                                </a>
+                            </p>
+                        </div>
+                        <p>
+                            Este es un lorem ipsum dolor sit amet, consectetur adipiscing elit. Pero no es un loren ipsum para papel, es para pantalla, donde
+                            <a href="https://www.nngroup.com/articles/how-users-read-on-the-web/" target="_blank" title="How Users Read on the Web">es recomendable</a> <em>destacar palabras clave</em>, ofrecer
+                            <a href="https://www.nngroup.com/videos/plain-language-for-experts/" target="_blank" title="Plain Language For Everyone, Even Experts">una idea por párrafo</a> (que sea clara para
+                            <a href="https://www.nngroup.com/videos/biggest-mistake-writing-web/" target="_blank" title="The Biggest Mistake in Writing for the Web">tu público objetivo</a>) y usar el estilo de pirámide invertida (incluyendo
+                            en cada pirámide lo que se acaba de <a href="https://youtu.be/iEB3oILm-qQ?t=2063" target="_blank" title="Charla del Dr. Mario García">mostrar o se mostrará</a> a continuación).
+                        </p>
                     </div>
                 </div>
             </section>
 
-            <section class="container">
+            <!--SECCIÓN MOVILIZADA-->
+            <section class="container" id="seccion_movilizada">
+                <div class="col-sm-5 mx-auto">
+                    <object class="mx-5" data="archivos/velocidades-mamiferos.svg" type="image/svg+xml"></object>
+                </div>
+
+                <div class="row">
+
+
+                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                                        
+
+                        <h3 class="text-center mt-5 mb-3">Sección movilizada</h3>
+                        <!--INTERACCIÓN-->
+
+                        <h4 class="text-center mt-5 mb-3">Interacción</h4>
+                        <div class="row">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                                <style type="text/css">
+                                    .lineas {
+                                        fill: none;
+                                        stroke: #585453;
+                                        stroke-linecap: round;
+                                        stroke-miterlimit: 10;
+                                    }
+                                </style>
+                                <path id="arriba" class="lineas" d="M5,50C5,50,57.7-5.9,110,5c52.3,10.9,85,80,85,80" />
+                                <path id="abajo" class="lineas" d="M25,35c0,0,14.1,55.5,75,60c59.5,4.4,70-45,70-45" />
+                                <circle id="iris" class="lineas" cx="105" cy="50" r="40" />
+                                <circle id="poca_luz" fill="back" cx="105" cy="50" r="35" />
+                                <ellipse id="mucha_luz" fill="back" cx="105" cy="50" rx="10" ry="35" class="d-none" />
+                            </svg>
+                        </div>
+                        <div class="small fw-bold text-center my-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="radioNocturno" value="nocturno" onchange="getValue(this)" checked />
+                                <label class="form-check-label" for="radioNocturno">Canto matutino</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="radioDiurno" value="diurno" onchange="getValue(this)" />
+                                <label class="form-check-label" for="radioDiurno">Baño y ejercicios</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="radioNocturno" value="nocturno" onchange="getValue(this)" checked />
+                                <label class="form-check-label" for="radioNocturno">Desayuno</label>
+                            </div>
+                            <!--Si la pantalla es chica paso a dos líneas para los botones, no funciona al momento de cambiar de tamaño-->
+                            <script>
+                                var width = window.innerWidth;
+                                if (width < 770) {
+                                    document.write("<br>");
+                                }
+                            </script>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="radioDiurno" value="diurno" onchange="getValue(this)" />
+                                <label class="form-check-label" for="radioDiurno">Descanso</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="radioNocturno" value="nocturno" onchange="getValue(this)" checked />
+                                <label class="form-check-label" for="radioNocturno">Almuerzo</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="radioDiurno" value="diurno" onchange="getValue(this)" />
+                                <label class="form-check-label" for="radioDiurno">Canto vespertino</label>
+                            </div>
+                              <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1355731432"></iframe>
+                   
+                        </div>
+
+                        <p>
+                            Este es un lorem ipsum dolor sit amet, consectetur adipiscing elit. Pero no es un loren ipsum para papel, es para pantalla, donde
+                            <a href="https://www.nngroup.com/articles/how-users-read-on-the-web/" target="_blank" title="How Users Read on the Web">es recomendable</a> <em>destacar palabras clave</em>, ofrecer
+                            <a href="https://www.nngroup.com/videos/plain-language-for-experts/" target="_blank" title="Plain Language For Everyone, Even Experts">una idea por párrafo</a> (que sea clara para
+                            <a href="https://www.nngroup.com/videos/biggest-mistake-writing-web/" target="_blank" title="The Biggest Mistake in Writing for the Web">tu público objetivo</a>) y usar el estilo de pirámide invertida (incluyendo
+                            en cada pirámide lo que se acaba de <a href="https://youtu.be/iEB3oILm-qQ?t=2063" target="_blank" title="Charla del Dr. Mario García">mostrar o se mostrará</a> a continuación).
+                        </p>
+
+
+                        <h1>
+                            Muestras Faco
+                        </h1>
+
+                        <!--SECCIÓN COMPARATIVA-->
+            <section class="container" id="seccion_comparativa">
                 <div class="row">
                     <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <h3 class="text-center pt-5 pb-2">Etcétera</h3>
+                        <h3 class="text-center mt-5 mb-3">Sección comparativa</h3>
+                        <object data="archivos/grafico-tamanos.svg" type="image/svg+xml" class="my-3"></object>
+                        <p>
+                            Este es un lorem ipsum dolor sit amet, consectetur adipiscing elit. Pero no es un loren ipsum para papel, es para pantalla, donde
+                            <a href="https://www.nngroup.com/articles/how-users-read-on-the-web/" target="_blank" title="How Users Read on the Web">es recomendable</a> <em>destacar palabras clave</em>, ofrecer
+                            <a href="https://www.nngroup.com/videos/plain-language-for-experts/" target="_blank" title="Plain Language For Everyone, Even Experts">una idea por párrafo</a> (que sea clara para
+                            <a href="https://www.nngroup.com/videos/biggest-mistake-writing-web/" target="_blank" title="The Biggest Mistake in Writing for the Web">tu público objetivo</a>) y usar el estilo de pirámide invertida (incluyendo
+                            en cada pirámide lo que se acaba de <a href="https://youtu.be/iEB3oILm-qQ?t=2063" target="_blank" title="Charla del Dr. Mario García">mostrar o se mostrará</a> a continuación).
+                        </p>
                     </div>
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <div class="row align-items-center py-4">
-                            <div class="col-sm-6 text-center text-sm-start order-sm-2">
-                                <h4>Visión del tigre</h4>
-                                <p>Su visión es muy aguda aún en la oscuridad. De noche su pupila se agranda para dejar pasar más luz y de día en cambio se reduce.</p>
-                                <div class="small fw-bold">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="radioNocturno" value="nocturno" onchange="getValue(this)" checked />
-                                        <label class="form-check-label" for="radioNocturno">DE NOCHE</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="radioDiurno" value="diurno" onchange="getValue(this)" />
-                                        <label class="form-check-label" for="radioDiurno">DE DÍA</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 order-sm-1">
-                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" class="w-100">
-                                    <style type="text/css">
-                                        .uno {
-                                            fill: none;
-                                            stroke: #585453;
-                                            stroke-linecap: round;
-                                            stroke-miterlimit: 10;
-                                        }
-                                        .dos {
-                                            fill: #dd7324;
-                                        }
-                                    </style>
-                                    <path id="arriba" class="uno" d="M5,50C5,50,57.7-5.9,110,5c52.3,10.9,85,80,85,80" />
-                                    <path id="abajo" class="uno" d="M25,35c0,0,14.1,55.5,75,60c59.5,4.4,70-45,70-45" />
-                                    <circle id="iris" class="uno" cx="105" cy="50" r="40" />
-                                    <!--la Id es clave, porque eso es lo que el JavaScript busca en el documento-->
-                                    <circle id="poca_luz" class="dos" cx="105" cy="50" r="35" class="d-none" />
-                                    <ellipse id="mucha_luz" class="dos" cx="105" cy="50" rx="10" ry="35" class="d-none" />
-                                </svg>
-                            </div>
+                </div>
+            </section>
+
+                        <!--ANIMACIÓN CON SVG-->
+
+                        <h4 class="text-center mt-5 mb-3">Animación con SVG</h4>
+                        <object class="mx-5" data="archivos/el-movimiento.svg" type="image/svg+xml"></object>
+                        <p>
+                            Este es un lorem ipsum dolor sit amet, consectetur adipiscing elit. Pero no es un loren ipsum para papel, es para pantalla, donde
+                            <a href="https://www.nngroup.com/articles/how-users-read-on-the-web/" target="_blank" title="How Users Read on the Web">es recomendable</a> <em>destacar palabras clave</em>, ofrecer
+                            <a href="https://www.nngroup.com/videos/plain-language-for-experts/" target="_blank" title="Plain Language For Everyone, Even Experts">una idea por párrafo</a> (que sea clara para
+                            <a href="https://www.nngroup.com/videos/biggest-mistake-writing-web/" target="_blank" title="The Biggest Mistake in Writing for the Web">tu público objetivo</a>) y usar el estilo de pirámide invertida (incluyendo
+                            en cada pirámide lo que se acaba de <a href="https://youtu.be/iEB3oILm-qQ?t=2063" target="_blank" title="Charla del Dr. Mario García">mostrar o se mostrará</a> a continuación).
+                        </p>
+
+                        <!--ANIMACIÓN CON SVG y CSS-->
+
+                        <h4 class="text-center mt-5 mb-3">Animación con SVG y CSS</h4>
+                        <object class="mx-5" data="archivos/el-grito.svg" type="image/svg+xml"></object>
+                        <p>
+                            Este es un lorem ipsum dolor sit amet, consectetur adipiscing elit. Pero no es un loren ipsum para papel, es para pantalla, donde
+                            <a href="https://www.nngroup.com/articles/how-users-read-on-the-web/" target="_blank" title="How Users Read on the Web">es recomendable</a> <em>destacar palabras clave</em>, ofrecer
+                            <a href="https://www.nngroup.com/videos/plain-language-for-experts/" target="_blank" title="Plain Language For Everyone, Even Experts">una idea por párrafo</a> (que sea clara para
+                            <a href="https://www.nngroup.com/videos/biggest-mistake-writing-web/" target="_blank" title="The Biggest Mistake in Writing for the Web">tu público objetivo</a>) y usar el estilo de pirámide invertida (incluyendo
+                            en cada pirámide lo que se acaba de <a href="https://youtu.be/iEB3oILm-qQ?t=2063" target="_blank" title="Charla del Dr. Mario García">mostrar o se mostrará</a> a continuación).
+                        </p>
+
+                        <!--ANIMACIÓN CON GIF y CSS-->
+
+                        <h4 class="text-center mt-5 mb-3">Animación con GIF y CSS</h4>
+                        <div class="mb-4 w-100 bg-light overflow-hidden">
+                            <img src="archivos/corre.gif" class="w-50" id="homero" alt="este es un homero corriendo"/>
                         </div>
-                    </div>
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <h4 class="text-center pt-5 pb-2">Tamaños</h4>
-                        <object data="files/grafico-tamanos.svg" type="image/svg+xml" class="my-3"></object>
-                        <p>Si vives en la ciudad, esta referencia te podría ser útil: <em>El tamaño de un chucao adulto está entre los tamaños de un gorrión y un zorzal</em>. Loren ipsum Nunc pulvinar laoreet nulla eget tincidunt. Donec interdum suscipit turpis, in mollis sapien bibendum dapibus. Aenean auctor sapien sit amet nisl rhoncus fringilla. Aliquam et varius mi, ut sodales arcu. Pellentesque tincidunt aliquet vulputate. Vestibulum tristique venenatis laoreet. Vivamus felis sem, commodo vel placerat nec, feugiat in purus.</p>
-                    </div>
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <h4 class="text-center pt-5 pb-2">Yuxtaposición de imágenes</h4>
-                        <div id="image-compare" class="my-3">
-                            <img src="files/beirut-antes.jpg" alt="Antes" />
-                            <img src="files/beirut-despues.jpg" alt="Después" />
+                        <p>
+                            Este es un lorem ipsum dolor sit amet, consectetur adipiscing elit. Pero no es un loren ipsum para papel, es para pantalla, donde
+                            <a href="https://www.nngroup.com/articles/how-users-read-on-the-web/" target="_blank" title="How Users Read on the Web">es recomendable</a> <em>destacar palabras clave</em>, ofrecer
+                            <a href="https://www.nngroup.com/videos/plain-language-for-experts/" target="_blank" title="Plain Language For Everyone, Even Experts">una idea por párrafo</a> (que sea clara para
+                            <a href="https://www.nngroup.com/videos/biggest-mistake-writing-web/" target="_blank" title="The Biggest Mistake in Writing for the Web">tu público objetivo</a>) y usar el estilo de pirámide invertida (incluyendo
+                            en cada pirámide lo que se acaba de <a href="https://youtu.be/iEB3oILm-qQ?t=2063" target="_blank" title="Charla del Dr. Mario García">mostrar o se mostrará</a> a continuación).
+                        </p>
+
+                        <!--ANIMACIÓN CON GIF-->
+
+                        <h4 class="text-center mt-5 mb-3">Animación con GIF</h4>
+                        <div class="text-center pb-4">
+                            <img src="archivos/vuela.gif" class="w-50 mx-auto" alt="hombre volador" />
                         </div>
-                        <p>Hay distintas formas de resolver, con JavaScript, una <a href="https://bashooka.com/coding/image-comparison-slider-javascript-libraries/" target="_blank">yuxtaposición imágenes</a>. En este caso ocupamos <a href="https://image-compare-viewer.netlify.app/" target="_blank">Imagen Comparte Viewer</a>, que ofrece su código de programación como una biblioteca de JavaScript complementada con un código de descripción de estilo (CSS). </p>
-                    </div>
-                        <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                            <h4 class="text-center pt-5 pb-2">Animación</h4>
-                            <p>Recuerden que podemos animar SVG con CSS, como en el siguiente caso; donde tenemos un par de <a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank">animaciones</a>, cada una con su <a href="https://www.w3schools.com/css/css3_2dtransforms.asp" target="_blank">transformación en 2D</a>:
-                            </p>
-                            <object class="mx-5" data="files/el-grito.svg" type="image/svg+xml"></object>
-                            <p class="text-center mx-5 mb-5 small text-muted">Este es el saco gural o faringeo del Siamang, que puede inflarse hasta alcanzar el tamaño de su cabeza. Está presente en macho y hembra. Se trata de una característica morfológica única que los distingue de otros gibones.</p>
-                            <p class="mb-5">Como ya se dijo, hay formas <a href="https://css-tricks.com/guide-svg-animations-smil/" target="_blank" rel="noopener noreferrer">más complejas de animar SVG</a>, donde no se utiliza CSS, sino el mismo primer lenguaje. De tal forma se resuelven las animaciones de <strong>Movements and maneuvers </strong> en <a href="https://multimedia.scmp.com/culture/article/ufo/" target="_blank" rel="noopener noreferrer">Are we alone?</a>, un trabajo de Adolfo Arranz y Pablo Robles, publicado en el South China Morning Post.</p>
-                            <p>También hay formas de animar con CSS y HTML, sin SVG, pero eso lo podremos ver la próxima sesión, sobre <a href="https://github.com/profesorfaco/infografia/tree/main/clase-4" target="_blank">JavaScript: Datos y bibliotecas</a>:</p>
-                            <div class="row mb-5" id="final">
-                                <div class="col-12" style="position:relative; height:60px;">
-                                    <img src="files/corre-atrasado.gif" width="60" height="60">
-                                </div>
-                                <div class="col-12" style="position:relative; height:60px;">
-                                    <img src="files/corre-atrasado.gif" width="60" height="60">
-                                </div>
-                            </div>
+                        <p>
+                            Este es un lorem ipsum dolor sit amet, consectetur adipiscing elit. Pero no es un loren ipsum para papel, es para pantalla, donde
+                            <a href="https://www.nngroup.com/articles/how-users-read-on-the-web/" target="_blank" title="How Users Read on the Web">es recomendable</a> <em>destacar palabras clave</em>, ofrecer
+                            <a href="https://www.nngroup.com/videos/plain-language-for-experts/" target="_blank" title="Plain Language For Everyone, Even Experts">una idea por párrafo</a> (que sea clara para
+                            <a href="https://www.nngroup.com/videos/biggest-mistake-writing-web/" target="_blank" title="The Biggest Mistake in Writing for the Web">tu público objetivo</a>) y usar el estilo de pirámide invertida (incluyendo
+                            en cada pirámide lo que se acaba de <a href="https://youtu.be/iEB3oILm-qQ?t=2063" target="_blank" title="Charla del Dr. Mario García">mostrar o se mostrará</a> a continuación).
+                        </p>
                     </div>
                 </div>
             </section>
         </main>
+
         <!--ESTE ES EL PIE DE PÁGINA-->
         <footer class="bg-dark text-white-50">
             <div class="container">
                 <div class="row">
-                    <div class="col py-5">
-                        <p class="text-center small">Lo dejaremos hasta aquí, por ahora</p>
+                    <div class="col py-3">
+                        <p class="text-center small">Revisa <a href="otro-formato.html" class="link-light">el otro formato</a></p>
                     </div>
                 </div>
             </div>
         </footer>
-        <!--EN EL SCRIPT QUE SIGUE AJUSTA EL SVG DEL ESTADO DE CONSERVACIÓN AL ANCHO DE LA VENTANA-->
-        <script>
-            window.addEventListener("DOMContentLoaded", elAjuste);
-            window.addEventListener("resize", elAjuste);
-            var ajustable = document.getElementById("conservacion");
-            function elAjuste() {
-                if (window.innerWidth >= 1000) {
-                    ajustable.className = "";
-                    ajustable.classList.add("w-50");
-                } else if (window.innerWidth < 1000 && window.innerWidth > 700) {
-                    ajustable.className = "";
-                    ajustable.classList.add("w-75");
-                } else {
-                    ajustable.className = "";
-                    ajustable.classList.add("w-100");
-                }
-            }
-        </script>
-        <!--CON EL SIGUIENTE SCRIPT HAGO CANTAR AL CHUCAO-->
-        <script>
-            var canto = document.getElementById("elAudio");
-            var boton = document.getElementById("elSwitch");
-            boton.addEventListener('change', function() {
-                if (this.checked) {
-                    canto.play();
-                } else {
-                    canto.pause();
-                }
-            });
-        </script>
-        <!--CON EL SIGUIENTE SCRIPT CAMBIO LOS OJOS DE NOCHE A DÍA-->
+
+        <!-- UNA VEZ EL NAVEGADOR HAYA LEIDO TODO, PODEMOS MANIPULAR SU COMPRENSIÓN-->
+        <!--EL SIGUIENTE PROGRAMITA CAMBIA EL OJO-->
         <script>
             function getValue(radio) {
                 if (radio.value == "nocturno") {
@@ -305,36 +573,26 @@ Como el ser humano y los demás grandes primates, forma parte de los hominodos.<
                 }
             }
         </script>
-        <!--BOOTSTRAP, ADEMÁS DE UN CSS, OFRECE SU PROPIA BIBLIOTECA DE JAVASCRIPT-->
+        <!--BOOTSTRAP OFRECE SU PROPIA BIBLIOTECA DE JAVASCRIPT-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <!--LO QUE SIGUE ES OTRA BIBLIOTECA DE JAVASCRIPT-->
         <script src="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.js"></script>
         <!--LO QUE SIGUE ES LA CONFIGURACIÓN DE LA COMPARACIÓN DE IMÁGENES-->
         <script>
-            const element = document.querySelector("#image-compare");
+            const element = document.querySelector("#yuxtaposicion");
             const options = {
-                  controlColor: "#FFFFFF",
-                  controlShadow: true,
-                  addCircle: true,
-                  addCircleBlur: true,
-                  showLabels: true,
-                  labelOptions: {
-                    before: 'Antes',
-                    after: 'Despues',
-                    onHover: false
-                }
+                controlColor: "#fff",
+                controlShadow: true,
+                addCircle: true,
+                addCircleBlur: true,
+                showLabels: true,
+                labelOptions: {
+                    before: "Cara",
+                    after: "Sello",
+                    onHover: false,
+                },
             };
             const viewer = new ImageCompare(element, options).mount();
-        </script>
-        <!--PARA QUE HOMERO CORRA UNA VEZ LLEGUEMOS AL FINAL-->
-        <script>
-            var f = document.querySelector("#final").offsetTop;
-            addEventListener("scroll",function () {
-                if (f > window.scrollY) {
-                    document.querySelector("#final").querySelectorAll("img")[0].setAttribute("id", "veloz");
-                    document.querySelector("#final").querySelectorAll("img")[1].setAttribute("id", "lento");
-                }
-            },false);
         </script>
     </body>
 </html>
