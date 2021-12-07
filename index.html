@@ -594,5 +594,17 @@ GOOGLE FONTS*/
             };
             const viewer = new ImageCompare(element, options).mount();
         </script>
+        <!--CON EL SIGUIENTE SCRIPT HAGO CANTAR AL GIBÓN-->
+        <script>
+            var canto = document.getElementById("elAudio");
+            var boton = document.getElementById("elSwitch");
+            boton.addEventListener('change', function() {
+                if (this.checked) {
+                    canto.play();
+                } else {
+                    canto.pause();
+                }
+            });
+        </script>
     </body>
 </html>
