@@ -366,9 +366,32 @@
             </section>
             <!--SECCIÓN MOVILIZADA-->
             <section class="container" id="seccion_movilizada">
-                <div class="col-sm-5 mx-auto">
-                    <object class="mx-5" data="archivos/velocidades-mamiferos.svg" type="image/svg+xml" title="velocidades"></object>
-                </div>
+                <div class="row mb-5" id="final">
+                                <div class="col-12" style="position:relative; height:100px;">
+                                    <img src="archivos/cheetah.svg" width="400" height="400" alt="cheetah en velocidad">
+                                </div>
+                                <div class="col-12" style="position:relative; height:100px;">
+                                    <img src="archivos/caballo.svg" width="400" height="400" alt="caballo en velocidad">
+                                </div>
+                                <div class="col-12" style="position:relative; height:100px;">
+                                    <img src="archivos/rinoceronte.svg" width="400" height="400" alt="rinoceronte en velocidad">
+                                </div>
+                                <div class="col-12" style="position:relative; height:100px;">
+                                    <img src="archivos/gibon.svg" width="400" height="400" alt="gibon en velocidad">
+                                </div>
+                                <div class="col-12" style="position:relative; height:100px;">
+                                    <img src="archivos/gato.svg" width="400" height="400" alt="gato en velocidad">
+                                </div>
+                                <div class="col-12" style="position:relative; height:100px;">
+                                    <img src="archivos/humano.svg" width="400" height="400" alt="humano en velocidad">
+                                </div>
+                                <div class="col-12" style="position:relative; height:100px;">
+                                    <img src="archivos/raton.svg" width="400" height="400" alt="raton en velocidad">
+                                </div>
+                                <div class="col-12" style="position:relative; height:100px;">
+                                    <img src="archivos/perezoso.svg" width="400" height="400" alt="perezoso en velocidad">
+                                </div>
+                            </div>                                
                 <div class="row">
                     <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
                         <h3 class="text-center mt-5 mb-3">Sección movilizada</h3>
@@ -650,6 +673,16 @@
                     canto.pause();
                 }
             });
+        </script>
+        <!--PARA QUE LOS ANIMALES CORRÁN UNA VEZ LLEGUEMOS AL FINAL-->
+         <script>
+            var f = document.querySelector("#final").offsetTop;
+            addEventListener("scroll",function () {
+                if (f > window.scrollY) {
+                    document.querySelector("#final").querySelectorAll("img")[0].setAttribute("id", "veloz");
+                    document.querySelector("#final").querySelectorAll("img")[1].setAttribute("id", "lento");
+                }
+            },false);
         </script>
     </body>
 </html>
