@@ -103,18 +103,39 @@
             aside {
                 background: linear-gradient(#fff, #e7e8e9);
             }
-            
+
             @keyframes corre {
                 0%{left: 0; position: absolute;}
                 100%{left: calc(100% - 60px); position: absolute;}
             }
             
-            #lento{
-                animation: corre 10s normal forwards;
+            #cheetah{
+                animation: corre 2s normal forwards;
             }
 
-            #veloz{
-                animation: corre 5s normal forwards;
+            #caballo{
+                animation: corre 2.27s normal forwards;
+            }            
+            #rinoceronte{
+                animation: corre 3.64s normal forwards;
+            }
+
+            #gibon{
+                animation: corre 4s normal forwards;
+            }            
+            #gato{
+                animation: corre 4.17s normal forwards;
+            }
+
+            #humano{
+                animation: corre 5.26s normal forwards;
+            }            
+            #raton{
+                animation: corre 15.38s normal forwards;
+            }
+
+            #perezoso{
+                animation: corre 740.74s normal forwards;
             }
         </style>
         <!--ESTO SERVIRÁ PARA COMPARAR UN ANTES Y UN DESPUÉS-->
@@ -680,8 +701,14 @@
             var f = document.querySelector("#final").offsetTop;
             addEventListener("scroll",function () {
                 if (f > window.scrollY) {
-                    document.querySelector("#final").querySelectorAll("img")[0].setAttribute("id", "veloz");
-                    document.querySelector("#final").querySelectorAll("img")[1].setAttribute("id", "lento");
+                    document.querySelector("#final").querySelectorAll("img")[0].setAttribute("id", "cheetah");
+                    document.querySelector("#final").querySelectorAll("img")[1].setAttribute("id", "caballo");
+                    document.querySelector("#final").querySelectorAll("img")[2].setAttribute("id", "rinoceronte");
+                    document.querySelector("#final").querySelectorAll("img")[3].setAttribute("id", "gibon");
+                    document.querySelector("#final").querySelectorAll("img")[4].setAttribute("id", "gato");
+                    document.querySelector("#final").querySelectorAll("img")[5].setAttribute("id", "humano");
+                    document.querySelector("#final").querySelectorAll("img")[6].setAttribute("id", "raton");
+                    document.querySelector("#final").querySelectorAll("img")[7].setAttribute("id", "perezoso");
                 }
             },false);
         </script>
