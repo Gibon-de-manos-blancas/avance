@@ -75,60 +75,7 @@
             stroke-width: 0.5971;
             stroke-miterlimit: 10;
         }
-
-        @keyframes mueve {
-            0% {
-                transform: translate(-250px, 0px);
-            }
-            100% {
-                transform: translate(0, 0);
-            }
-        }
-        <!--100 km/h-->
-        #Cheetah {
-            transform-origin: center center;
-            animation: mueve 2s infinite;
-            animation-delay: 3.26s;
-        }
-        <!--88 km/h-->
-        #Caballo {
-            transform-origin: center center;
-            animation: mueve 2.27s infinite;
-            animation-delay: 2.99s;
-        }
-        <!--55 km/h-->
-        #Rinoceronte {
-            transform-origin: center center;
-            animation: mueve 3.64s infinite;
-            animation-delay: 1.62s;
-        }
-        <!--50 km/h-->
-        #Gibon {
-            transform-origin: center center;
-            animation: mueve 4s infinite;
-            animation-delay: 1.26s;
-        }
-        <!--48 km/h-->
-        #Gato {
-            transform-origin: center center;
-            animation: mueve 4.17s infinite;
-            animation-delay: 1.09s;
-        }
-        <!--Bolt record 100 m a 38 km/h-->
-        #Humano {
-            transform-origin: center center;
-            animation: mueve 5.26s infinite;
-        }
-        <!--13 km/h error de escala-->
-        #Raton {
-            transform-origin: center center;
-            animation: mueve 15.38s infinite;
-        }
-        <!--0.27 km/h-->
-        #Perezoso {
-            transform-origin: center center;
-            animation: mueve 740.74s infinite;
-        }          
+       
     </style>
     <rect x="124.51" y="258.41" class="st0" width="209.93" height="6.75" />
     <path
