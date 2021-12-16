@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Velocidades" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 400" style="enable-background: new 0 0 500 400;" xml:space="preserve">
+    <style type="text/css">
+        .st0 {
+            fill: none;
+        }
+        .st1 {
+            fill: #1e1e1c;
+        }
+        .st2 {
+            font-family: "BarlowSemiCondensed-LightItalic";
+        }
+        .st3 {
+            font-size: 7.5px;
+        }
+        .st4 {
+            fill: #b1b1b1;
+        }
+        .st5 {
+            fill: #d9d9d9;
+        }
+        .st6 {
+            fill: #db9f00;
+        }
+        .st7 {
+            fill: none;
+            stroke: #db9f00;
+            stroke-width: 0.5971;
+            stroke-miterlimit: 10;
+        }
+        .st8 {
+            fill: none;
+            stroke: #b1b1b1;
+            stroke-width: 0.5971;
+            stroke-miterlimit: 10;
+        }
+
+        .st9 {
+            fill: none;
+            stroke: #1e1e1c;
+            stroke-width: 0.75;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 10;
+            stroke-dasharray: 0, 4, 0, 0;
+        }
+
+        .st10 {
+            fill: none;
+            stroke: #1e1e1c;
+            stroke-width: 0.8957;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 10;
+            stroke-dasharray: 0, 4.7771, 0, 0;
+        }
+        .st11 {
+            font-family: "BarlowSemiCondensed-Light";
+        }
+        .st12 {
+            font-size: 8.9571px;
+        }
+        .st13 {
+            font-family: "BarlowSemiCondensed-SemiBold";
+        }
+        .st14 {
+            fill: none;
+            stroke: #1e1e1c;
+            stroke-width: 0.5;
+            stroke-miterlimit: 10;
+        }
+        .st15 {
+            fill: none;
+            stroke: #d9d9d9;
+            stroke-width: 0.5971;
+            stroke-miterlimit: 10;
+        }
+
+        @keyframes mueve {
+            0% {
+                transform: translate(-250px, 0px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+        <!--100 km/h-->
+        #Cheetah {
+            transform-origin: center center;
+            animation: mueve 2s infinite;
+            animation-delay: 3.26s;
+        }
+        <!--88 km/h-->
+        #Caballo {
+            transform-origin: center center;
+            animation: mueve 2.27s infinite;
+            animation-delay: 2.99s;
+        }
+        <!--55 km/h-->
+        #Rinoceronte {
+            transform-origin: center center;
+            animation: mueve 3.64s infinite;
+            animation-delay: 1.62s;
+        }
+        <!--50 km/h-->
+        #Gibon {
+            transform-origin: center center;
+            animation: mueve 4s infinite;
+            animation-delay: 1.26s;
+        }
+        <!--48 km/h-->
+        #Gato {
+            transform-origin: center center;
+            animation: mueve 4.17s infinite;
+            animation-delay: 1.09s;
+        }
+        <!--Bolt record 100 m a 38 km/h-->
+        #Humano {
+            transform-origin: center center;
+            animation: mueve 5.26s infinite;
+        }
+        <!--13 km/h error de escala-->
+        #Raton {
+            transform-origin: center center;
+            animation: mueve 15.38s infinite;
+        }
+        <!--0.27 km/h-->
+        #Perezoso {
+            transform-origin: center center;
+            animation: mueve 740.74s infinite;
+        }          
+    </style>
+    <rect x="124.51" y="258.41" class="st0" width="209.93" height="6.75" />
+<image
+        style="overflow: visible; enable-background: new;"
+        width="175"
+        height="51"
+        id="Raton"
+        xlink:href="data:image/png;base64,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"
+        transform="matrix(-0.0748 5.339953e-03 5.339953e-03 0.0748 156.4088 247.6254)"
+    ></image>
+</svg>
