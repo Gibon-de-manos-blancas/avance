@@ -5,7 +5,7 @@ Problemáticas actuales
 - Activar soundcloud con un botón de la rutina diaria.
 - Cambiar el color de fondo en la sección de la rutina diaria dando la sensación del avance del día.
 
-![2021-12-02-Boceto](https://user-images.githubusercontent.com/94649956/144522373-3302a756-dce2-40a9-8171-6daf6c648364.jpg)
+![2021-12-02-Boceto](https://github.com/Gibon-de-manos-blancas/avance/blob/ddab92358099edc05312bc331053b7047de3a36d/archivos/Boceto-01.png)
 
 # Versión web - siteshot
 
