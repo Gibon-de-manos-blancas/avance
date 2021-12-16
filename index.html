@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!-- COMMON TAGS -->
@@ -58,6 +57,31 @@
                 text-decoration: none;
                 transition: color ease 0.5s;
             }
+
+            .btn-outline-primary {
+                color: var(--bs-primary) !important;
+                border-color: var(--bs-primary) !important;
+            }
+            .btn-outline-primary:hover {
+                color: #fff !important;
+                background-color: var(--bs-primary) !important;
+                border-color: var(--bs-primary) !important;
+            }
+
+            .btn-check:checked + .btn-outline-primary,
+            .btn-check:active + .btn-outline-primary,
+            .btn-outline-primary:active,
+            .btn-outline-primary.active,
+            .btn-outline-primary.dropdown-toggle.show {
+                color: #fff !important;
+                background-color: var(--bs-primary) !important;
+                border-color: var(--bs-primary) !important;
+            }
+
+            body {
+                max-width: 100vw;
+                overflow-x: hidden;
+            }
             /* vamos a ajustar los pesos de algunos títulos a lo que dispone la fuente  */
             h1,
             h2,
@@ -100,42 +124,86 @@
             span[data-bs-toggle="popover"] {
                 cursor: pointer;
             }
+
+            header {
+                background: url("archivos/danzarin_dosel.png");
+                background-repeat: no-repeat;
+                background-position: center top;
+                background-size: 1024px auto;
+                padding-top: 300px;
+            }
             aside {
                 background: linear-gradient(#fff, #e7e8e9);
             }
 
             @keyframes corre {
-                0%{left: 0; position: absolute;}
-                100%{left: calc(100% - 60px); position: absolute;}
+                0% {
+                    left: 0;
+                    position: absolute;
+                }
+                100% {
+                    left: calc(100% - 100px);
+                    position: absolute;
+                }
             }
 
-            #cheetah{
-                animation: corre 2s normal forwards;
+            #carrera {
+                width: 100vw;
+                max-width: 100vw;
+                overflow-x: hidden;
+                background: #fafafa;
+                margin: 0;
+                padding: 0;
+            }
+            #carrera div {
+                height: 50px;
+                width: 100vw;
+                max-width: 100vw;
+                position: relative;
+                overflow: hidden;
+            }
+            #carrera div p {
+                position: absolute;
+                left: 20px;
+                top: 10px;
+                opacity: 0;
+                transition: all ease 0.2s;
+            }
+            #carrera:hover {
+                cursor: pointer;
+            }
+            #carrera:hover div p {
+                position: absolute;
+                left: 10px;
+                top: 10px;
+                opacity: 1;
+                transition: all ease 2s;
+            }
+            #carrera:hover div img#chita {
+                animation: corre 1.2s normal forwards;
             }
 
-            #caballo{
-                animation: corre 2.27s normal forwards;
-            }
-            #rinoceronte{
-                animation: corre 3.64s normal forwards;
+            #carrera:hover div img#caballo {
+                animation: corre 1.6s normal forwards;
             }
 
-            #gibon{
-                animation: corre 4s normal forwards;
-            }
-            #gato{
-                animation: corre 4.17s normal forwards;
+            #carrera:hover div img#gibon {
+                animation: corre 2.6s normal forwards;
             }
 
-            #humano{
-                animation: corre 5.26s normal forwards;
-            }
-            #raton{
-                animation: corre 15.38s normal forwards;
+            #carrera:hover div img#rinoceronte {
+                animation: corre 2.9s normal forwards;
             }
 
-            #perezoso{
-                animation: corre 740.74s normal forwards;
+            #carrera:hover div img#gato {
+                animation: corre 3s normal forwards;
+            }
+
+            #carrera:hover div img#humano {
+                animation: corre 3.3s normal forwards;
+            }
+            #carrera:hover div img#raton {
+                animation: corre 12s normal forwards;
             }
         </style>
         <!--ESTO SERVIRÁ PARA COMPARAR UN ANTES Y UN DESPUÉS-->
@@ -143,333 +211,299 @@
     </head>
     <body>
         <!--ESTE ES EL ENCABEZADO-->
-        <header class="container">
-            <img src="archivos/danzarin_dosel.jpg" alt="Ilustración gibón desplazándose" class="w-100 my-3" />
-            <div class="row">
-                <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                    <h2 class="text-center fst-italic mt-5"><span class="px-2 py-1">Hylobates lar</span></h2>
-                    <h1 class="text-center py-3">Gibón de manos blancas</h1>
-                    <!--desde acá la edición de nombres-->
-                    <h6 class="text-center mb-5 text-muted">
-                        Por
-                        <span
-                            data-bs-container="body"
-                            data-bs-toggle="popover"
-                            data-bs-trigger="hover focus"
-                            data-bs-placement="top"
-                            data-bs-content="<div class='text-center'><img src='archivos/cfurrianca.jpg' class='w-50 mb-2 rounded-circle'><br>Cristina Furrianca<br><span class='small text-muted'>Diseñadora</span></div>"
-                        >
-                            Cristina Furrianca
-                        </span>
-                        ,
-                        <span
-                            data-bs-container="body"
-                            data-bs-toggle="popover"
-                            data-bs-trigger="hover focus"
-                            data-bs-placement="top"
-                            data-bs-content="<div class='text-center'><img src='https://randomuser.me/api/portraits/men/14.jpg' class='w-50 mb-2 rounded-circle'><br>Gabriel Moreno<br><span class='small text-muted'>Diseñador</span></div>"
-                        >
-                            Gabriel Moreno
-                        </span>
-                        y
-                        <span
-                            data-bs-container="body"
-                            data-bs-toggle="popover"
-                            data-bs-trigger="hover focus"
-                            data-bs-placement="top"
-                            data-bs-content="<div class='text-center'><img src='https://randomuser.me/api/portraits/men/16.jpg' class='w-50 mb-2 rounded-circle'><br>Ramón PdeA<br><span class='small text-muted'>Ingeniero Civil</span></div>"
-                        >
-                            Ramón PdeA
-                        </span>
-                    </h6>
-                    <!--hasta aquí la edición de nombres-->
-                    <p class="lead">
-                        <em>Endémico de las selvas del sudeste asiático</em>, este mamífero acrobático, nos muestra su agilidad y velocidad, al desplazarse como un danzarín en medio del dosel árboreo de la selva tropical. Su anatomía está adaptada a la vida en suspensión y es uno de los dos primates que utiliza esta particular forma de desplazamiento
-denomina <em>braquiación</em>.
-                    </p>
-                    <p>
-                        <em>Los gibones son parte de la familia de los hilobátidos</em> y se encuentra en peligro de extinción según la clasificación elaborada por la Unión Internacional para la Conservación de la Naturaleza, que compila la Lista Roja de especies amenazadas: En peligro crítico (CR); <em>En peligro (EN)</em> y Vulnerables (VU).
-                    </p>
-                    <div class="row">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" class="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 col-xxl-6 my-3 mx-auto">
-                            <style type="text/css">
-                                line,
-                                path {
-                                    fill: none;
-                                    stroke: #777777;
-                                    stroke-linecap: round;
-                                }
-                                .blanco {
-                                    fill: #ffffff;
-                                    font-size: 45px;
-                                }
-                                .gris {
-                                    fill: #777777;
-                                    font-size: 35px;
-                                }
-                                .no {
-                                    fill: #999999;
-                                }
-                                .si {
-                                    fill: var(--bs-primary);
-                                }
-                            </style>
-                            <g id="ex">
-                                <circle class="no" cx="82.1" cy="250" r="45" />
-                                <text transform="matrix(1 0 0 1 54 265)" class="blanco">EX</text>
-                            </g>
-                            <g id="ew">
-                                <circle class="no" cx="212.6" cy="250" r="45" />
-                                <text transform="matrix(1 0 0 1 180 265)" class="blanco">EW</text>
-                            </g>
-                            <g id="cr">
-                                <circle class="no" cx="342.9" cy="250" r="45" />
-                                <text transform="matrix(1 0 0 1 313 265)" class="blanco">CR</text>
-                            </g>
-                            <g id="en">
-                                <circle class="si" cx="473.6" cy="250" r="45" />
-                                <text transform="matrix(1 0 0 1 444 265)" class="blanco">EN</text>
-                            </g>
-                            <g id="vu">
-                                <circle class="no" cx="603.8" cy="250" r="45" />
-                                <text transform="matrix(1 0 0 1 574 265)" class="blanco">VU</text>
-                            </g>
-                            <g id="nt">
-                                <circle class="no" cx="734.1" cy="250" r="45" />
-                                <text transform="matrix(1 0 0 1 705 265)" class="blanco">NT</text>
-                            </g>
-                            <g id="lc">
-                                <circle class="no" cx="865.6" cy="250" r="45" />
-                                <text transform="matrix(1 0 0 1 840 265)" class="blanco">LC</text>
-                            </g>
-                            <g id="datos">
-                                <text transform="matrix(1 0 0 1 29.8186 54.2935)" class="gris">Extinto</text>
-                                <text transform="matrix(1 0 0 1 382.5784 54.2935)" class="gris">Amenazado</text>
-                                <text transform="matrix(1 0 0 1 760.9694 54.2935)" class="gris">Preocupación</text>
-                                <text transform="matrix(1 0 0 1 812.2867 95.3477)" class="gris">menor</text>
-                                <text transform="matrix(1 0 0 1 392.5784 340.2935)" class="gris">En peligro</text>
-                                <line class="st6" x1="865.6" y1="119.4" x2="865.6" y2="162.5" />
-                                <line class="st6" x1="82.1" y1="77.9" x2="82.1" y2="162.5" />
-                                <path
-                                    class="st6"
-                                    d="M279.3,162.5v-55.2c0-6,4.8-10.8,10.8-10.8h161.1c4.4,0,7.9-0.3,10.4-0.9c2.6-0.5,5-1.9,7-3.8 c2.6-3.3,4.1-6,4.3-8.6c0.2,2.6,1.7,5.3,4.3,8.6c2.1,2.1,4.4,3.3,7,3.8c2.6,0.5,6.2,0.9,10.4,0.9h163.2c6,0,10.8,4.8,10.8,10.8v55.2"
-                                />
-                            </g>
-                        </svg>
-                    </div>
-                    <!--Muestra al gibón chico o el grande, pero carga ambos. Falta modificar los datos que se muestran-->
-                    <object data="archivos/gibon-chico.svg" type="image/svg+xml" class="d-md-none" title="gibon chico"></object>
-                    <object data="archivos/gibon-grande.svg" type="image/svg+xml" class="d-none d-md-block" title="gibon grande"></object>
-                    <!--Se muestra o no por una clase de Bootstrap que responde al ancho de pantalla-->
-                    <!--Muestra el gibón chico o el grando, pero carga ambos-->
-                    <object data="archivos/Gibon_ejercicio_3.svg" type="image/svg+xml" class="d-md-none" title="gibon chico"></object>
-                    <object data="archivos/Gibon_ejercicio_3.svg" type="image/svg+xml" class="d-none d-md-block" title="gibon grande"></object>
-                    <!--Se muestra o no por una clase de Bootstrap que responde al ancho de pantalla-->
-                    <!--Acá se cargan dos audios, pero sonará uno-->
-                    <div class="mx-auto px-3 py-2 rounded-pill shadow-sm" style="width: 220px; background: #ddd;">
-                        <audio id="elAudio">
-                            <source src="img/chants_gibbons.mp3" type="audio/mpeg" />
-                        </audio>
-                        <div class="form-check form-switch text-center">
-                            <input class="form-check-input" type="checkbox" id="elSwitch" />
-                            <label class="form-check-label" for="elSwitch">Gibones cantando</label>
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                        <h2 class="text-center fst-italic mt-5"><span class="px-2 py-1">Hylobates lar</span></h2>
+                        <h1 class="text-center py-3">Gibón de manos blancas</h1>
+                        <!--desde acá la edición de nombres-->
+                        <h6 class="text-center mb-5 text-muted">
+                            Por
+                            <span
+                                data-bs-container="body"
+                                data-bs-toggle="popover"
+                                data-bs-trigger="hover focus"
+                                data-bs-placement="top"
+                                data-bs-content="<div class='text-center'><img src='https://randomuser.me/api/portraits/women/14.jpg' class='w-50 mb-2 rounded-circle'><br>Cristina Furrianca<br><span class='small text-muted'>Profesión</span></div>"
+                            >
+                                Cristina Furrianca
+                            </span>
+                            ,
+                            <span
+                                data-bs-container="body"
+                                data-bs-toggle="popover"
+                                data-bs-trigger="hover focus"
+                                data-bs-placement="top"
+                                data-bs-content="<div class='text-center'><img src='https://randomuser.me/api/portraits/men/14.jpg' class='w-50 mb-2 rounded-circle'><br>Gabriel Moreno<br><span class='small text-muted'>Profesión</span></div>"
+                            >
+                                Gabriel Moreno
+                            </span>
+                            y
+                            <span
+                                data-bs-container="body"
+                                data-bs-toggle="popover"
+                                data-bs-trigger="hover focus"
+                                data-bs-placement="top"
+                                data-bs-content="<div class='text-center'><img src='https://randomuser.me/api/portraits/men/16.jpg' class='w-50 mb-2 rounded-circle'><br>Ramón PdeA<br><span class='small text-muted'>Ingeniero Civil</span></div>"
+                            >
+                                Ramón PdeA
+                            </span>
+                        </h6>
+                        <!--hasta aquí la edición de nombres-->
+                        <p class="lead">
+                            <em>Endémico de las selvas del sudeste asiático</em>, este mamífero acrobático, nos muestra su agilidad y velocidad, al desplazarse como un danzarín en medio del dosel árboreo de la selva tropical.
+                        </p>
+                        <p>
+                            <em>El gibón es un primate de la familia de los hiobatidos</em>. Pertenece a la familia de los grandes primates compuesta por lo gorilas, los bonobos, los orangutanes, los chimpancés y, por supuesto, los gibones.
+                            Como el ser humano y los demás grandes primates, forma parte de los hominodos.
+                        </p>
+                        <div class="row">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" class="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 col-xxl-6 my-3 mx-auto">
+                                <style type="text/css">
+                                    line,
+                                    path {
+                                        fill: none;
+                                        stroke: #777777;
+                                        stroke-linecap: round;
+                                    }
+                                    .blanco {
+                                        fill: #ffffff;
+                                        font-size: 45px;
+                                    }
+                                    .gris {
+                                        fill: #777777;
+                                        font-size: 35px;
+                                    }
+                                    .no {
+                                        fill: #999999;
+                                    }
+                                    .si {
+                                        fill: var(--bs-primary);
+                                    }
+                                </style>
+                                <g id="ex">
+                                    <circle class="no" cx="82.1" cy="250" r="45" />
+                                    <text transform="matrix(1 0 0 1 54 265)" class="blanco">EX</text>
+                                </g>
+                                <g id="ew">
+                                    <circle class="no" cx="212.6" cy="250" r="45" />
+                                    <text transform="matrix(1 0 0 1 180 265)" class="blanco">EW</text>
+                                </g>
+                                <g id="cr">
+                                    <circle class="no" cx="342.9" cy="250" r="45" />
+                                    <text transform="matrix(1 0 0 1 313 265)" class="blanco">CR</text>
+                                </g>
+                                <g id="en">
+                                    <circle class="si" cx="473.6" cy="250" r="45" />
+                                    <text transform="matrix(1 0 0 1 444 265)" class="blanco">EN</text>
+                                </g>
+                                <g id="vu">
+                                    <circle class="no" cx="603.8" cy="250" r="45" />
+                                    <text transform="matrix(1 0 0 1 574 265)" class="blanco">VU</text>
+                                </g>
+                                <g id="nt">
+                                    <circle class="no" cx="734.1" cy="250" r="45" />
+                                    <text transform="matrix(1 0 0 1 705 265)" class="blanco">NT</text>
+                                </g>
+                                <g id="lc">
+                                    <circle class="no" cx="865.6" cy="250" r="45" />
+                                    <text transform="matrix(1 0 0 1 840 265)" class="blanco">LC</text>
+                                </g>
+                                <g id="datos">
+                                    <text transform="matrix(1 0 0 1 29.8186 54.2935)" class="gris">Extinto</text>
+                                    <text transform="matrix(1 0 0 1 382.5784 54.2935)" class="gris">Amenazado</text>
+                                    <text transform="matrix(1 0 0 1 760.9694 54.2935)" class="gris">Preocupación</text>
+                                    <text transform="matrix(1 0 0 1 812.2867 95.3477)" class="gris">menor</text>
+                                    <text transform="matrix(1 0 0 1 392.5784 340.2935)" class="gris">En peligro</text>
+                                    <line class="st6" x1="865.6" y1="119.4" x2="865.6" y2="162.5" />
+                                    <line class="st6" x1="82.1" y1="77.9" x2="82.1" y2="162.5" />
+                                    <path
+                                        class="st6"
+                                        d="M279.3,162.5v-55.2c0-6,4.8-10.8,10.8-10.8h161.1c4.4,0,7.9-0.3,10.4-0.9c2.6-0.5,5-1.9,7-3.8 c2.6-3.3,4.1-6,4.3-8.6c0.2,2.6,1.7,5.3,4.3,8.6c2.1,2.1,4.4,3.3,7,3.8c2.6,0.5,6.2,0.9,10.4,0.9h163.2c6,0,10.8,4.8,10.8,10.8v55.2"
+                                    />
+                                </g>
+                            </svg>
+                        </div>
+                        <!--Muestra al gibón chico o el grande, pero carga ambos. Falta modificar los datos que se muestran-->
+                        <object data="archivos/gibon-chico.svg" type="image/svg+xml" class="d-md-none my-3" title="gibon chico"></object>
+                        <object data="archivos/gibon-grande.svg" type="image/svg+xml" class="d-none d-md-block my-3" title="gibon grande"></object>
+                        <!--Se muestra o no por una clase de Bootstrap que responde al ancho de pantalla-->
+                        <!--Muestra el gibón chico o el grando, pero carga ambos-->
+                        <div class="mx-auto px-3 py-2 rounded-pill shadow-sm" style="width: 220px; background: #ddd;">
+                            <audio id="elAudio">
+                                <source src="archivos/chants_gibbons.mp3" type="audio/mpeg" />
+                            </audio>
+                            <div class="form-check form-switch text-center">
+                                <input class="form-check-input" type="checkbox" id="elSwitch" />
+                                <label class="form-check-label" for="elSwitch">Gibones cantando</label>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        <!--ESTE ES EL CONTENIDO PRINCIPAL, ESTÁ DIVIVIDO EN VARIAS SECCIONES-->
+
         <main class="pb-5">
-            <section class="container-fluid g-0">
-                <div class="row g-0">
-                    <div class="col-12 py-3">
-                        <h3 class="text-center pt-5 pb-2">Presencia</h3>
-                        <!--VAMOS A INCLUIR TRES SVG EN UN CARRUSEL-->
-                        <div id="carruselConMapa" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active" data-bs-interval="1000">
-                                    <object class="d-block w-100" data="img/territorio_gibon_001.svg" type="image/svg+xml" title="territorio 1"></object>
-                                    <div class="carousel-caption">
-                                        <h5>Cobertura arborea</h5>
-                                    </div>
-                                </div>
-                                <div class="carousel-item" data-bs-interval="1000">
-                                    <object class="d-block w-100" data="img/territorio_gibon_002.svg" type="image/svg+xml" title="territorio 2"></object>
-                                    <div class="carousel-caption">
-                                        <h5>Deforestación</h5>
-                                    </div>
-                                </div>
-                                <div class="carousel-item" data-bs-interval="1000">
-                                    <object class="d-block w-100" data="img/territorio_gibon_003.svg" type="image/svg+xml" title="territorio 3"></object>
-                                    <div class="carousel-caption">
-                                        <h5>Agricultura</h5>
-                                    </div>
-                                </div>
-                            </div>
+            <section>
+                <!--LA BRAQUIACIÓN-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto my-5">
+                            <h3 class="text-center my-3">Anatomía</h3>
+                            <p>Su anatomía está adaptada a la vida en suspensión y es uno de los dos primates que utiliza esta particular forma de desplazamiento denominada <em>braquiación</em>.</p>
+
+                            <object data="archivos/Gibon_ejercicio_3.svg" type="image/svg+xml" class="d-md-none" title="gibon chico"></object>
+                            <object data="archivos/Gibon_ejercicio_3.svg" type="image/svg+xml" class="d-none d-md-block" title="gibon grande"></object>
+
+                            <p>
+                                La braquiación permite a los gibones desplazarse mediante el balanceo a través de la jungla a una velocidad de hasta <em>56 km/h</em>. Una velocidad mayor a la de un rinoceronte, un gato doméstico, Usain Bolt
+                                (récords mundiales de los 100 y 200 m planos) y un ratón.
+                            </p>
                         </div>
                     </div>
                 </div>
-            </section>
-            <!--SECCIÓN YUXTAPUESTA-->
-            <section class="container" id="seccion_yuxtapuesta">
-                <div class="row">
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <h3 class="text-center mt-5 mb-3">Compara el esqueleto del gibón de manos blancas con el de un humano</h3>
-                        <div id="yuxtaposicion" class="my-3">
-                            <img style="overflow:visible" width="400" height="400" src="archivos/humano-esqueleto.jpg" alt="esqueleto humano" />
-                            <img style="overflow:visible" width="400" height="400" src="archivos/gibon-esqueleto.jpg" alt="esqueleto gibón" />
-                        </div>
-                        <p>
-                            Podemos apreciar múltiples diferencias con los humanos. Las proporciones de brazos. La forma de la cadera. El tamaño de sus colmillos. Lo alargado de la cabeza.
-                            Este es un lorem ipsum dolor sit amet, consectetur adipiscing elit. Pero no es un loren ipsum para papel, es para pantalla, donde
-                            <a href="https://www.nngroup.com/articles/how-users-read-on-the-web/" target="_blank" title="How Users Read on the Web">es recomendable</a> <em>destacar palabras clave</em>, ofrecer
-                            <a href="https://www.nngroup.com/videos/plain-language-for-experts/" target="_blank" title="Plain Language For Everyone, Even Experts">una idea por párrafo</a> (que sea clara para
-                            <a href="https://www.nngroup.com/videos/biggest-mistake-writing-web/" target="_blank" title="The Biggest Mistake in Writing for the Web">tu público objetivo</a>) y usar el estilo de pirámide invertida (incluyendo
-                            en cada pirámide lo que se acaba de <a href="https://youtu.be/iEB3oILm-qQ?t=2063" target="_blank" title="Charla del Dr. Mario García">mostrar o se mostrará</a> a continuación).
-                        </p>
+                <!--LA CARRERA DE LA BRAQUIACIÓN-->
+                <div id="carrera">
+                    <div class="border-bottom">
+                        <p class="small text-muted">120km/h</p>
+                        <img src="archivos/corre-chita.svg" width="100" height="50" alt="cheetah en velocidad" id="chita" />
+                    </div>
+                    <div class="border-bottom">
+                        <p class="small text-muted">88km/h</p>
+                        <img src="archivos/corre-caballo.svg" width="100" height="50" alt="caballo en velocidad" id="caballo" />
+                    </div>
+                    <div class="border-bottom">
+                        <p class="small text-muted">56km/h</p>
+                        <img src="archivos/corre-gibon.svg" width="100" height="50" alt="gibon en velocidad" id="gibon" />
+                    </div>
+                    <div class="border-bottom">
+                        <p class="small text-muted">50km/h</p>
+                        <img src="archivos/corre-rinoceronte.svg" width="100" height="50" alt="rinoceronte en velocidad" id="rinoceronte" />
+                    </div>
+                    <div class="border-bottom">
+                        <p class="small text-muted">48km/h</p>
+                        <img src="archivos/corre-gato.svg" width="100" height="50" alt="gato en velocidad" id="gato" />
+                    </div>
+                    <div class="border-bottom">
+                        <p class="small text-muted">44km/h</p>
+                        <img src="archivos/corre-humano.svg" width="100" height="50" alt="humano en velocidad" id="humano" />
+                    </div>
+                    <div class="border-bottom">
+                        <p class="small text-muted">12km/h</p>
+                        <img src="archivos/corre-raton.svg" width="100" height="50" alt="raton en velocidad" id="raton" />
                     </div>
                 </div>
-            </section>
-            <!--SECCIÓN CARRUSEL-->
-            <section id="seccion_ancha">
-                <div class="container-fluid g-0">
-                    <div class="row g-0">
-                        <div class="col-12">
-                            <h3 class="text-center my-3">Diferentes colores</h3>
-                            <!--VAMOS A INCLUIR TRES SVG EN UN CARRUSEL-->
-                            <div id="carruselConMapa" class="carousel carousel-light slide carousel-fade" data-bs-ride="carousel">
-                                <div class="carousel-indicators   ">
-                                    <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active" data-bs-interval="1000">
-                                        <object class="d-block w-100" data="archivos/colores-1.svg" type="image/svg+xml"  title="gibon blanco"></object>
-                                        <div class="carousel-caption text-white">
-                                            <h5>Blanco</h5>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item " data-bs-interval="1000">
-                                        <object class="d-block w-100" data="archivos/colores-2.svg" type="image/svg+xml" title="gibon cafe"></object>
-                                        <div class="carousel-caption text-white">
-                                            <h5>Café</h5>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="1000">
-                                        <object class="d-block w-100" data="archivos/colores-3.svg" type="image/svg+xml" title="gibon negro"></object>
-                                        <div class="carousel-caption text-white">
-                                            <h5>Negro</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!--LAS ADAPTACIONES PARA LA BRAQUIACIÓN-->
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto my-5">
                             <p>
-                                Este es un lorem ipsum dolor sit amet, consectetur adipiscing elit. Pero no es un loren ipsum para papel, es para pantalla, donde
-                                <a href="https://www.nngroup.com/articles/how-users-read-on-the-web/" target="_blank" title="How Users Read on the Web">es recomendable</a> <em>destacar palabras clave</em>, ofrecer
-                                <a href="https://www.nngroup.com/videos/plain-language-for-experts/" target="_blank" title="Plain Language For Everyone, Even Experts">una idea por párrafo</a> (que sea clara para
-                                <a href="https://www.nngroup.com/videos/biggest-mistake-writing-web/" target="_blank" title="The Biggest Mistake in Writing for the Web">tu público objetivo</a>) y usar el estilo de pirámide invertida
-                                (incluyendo en cada pirámide lo que se acaba de <a href="https://youtu.be/iEB3oILm-qQ?t=2063" target="_blank" title="Charla del Dr. Mario García">mostrar o se mostrará</a> a continuación).
+                                La braquiación, y la velocidad resultante, no serían posible sin el largo de sus brazos, la forma de su cadera y lo alargado de su alargada. Cada una de estas adaptaciones se hacen evidentes cuando comparamos
+                                la estructura ósea de un gibón con la de un humano.
+                            </p>
+                            <div id="yuxtaposicion" class="my-4 w-100">
+                                <img src="archivos/humano-esqueleto.jpg" alt="esqueleto humano" />
+                                <img src="archivos/gibon-esqueleto.jpg" alt="esqueleto gibón" />
+                            </div>
+
+                            <!--AGREGO CRÁNEO EN 3D-->
+                            <div class="ratio ratio-4x3 my-4">
+                                <iframe
+                                    title="White-handed gibbon skull and mandible"
+                                    frameborder="0"
+                                    allowfullscreen
+                                    mozallowfullscreen="true"
+                                    webkitallowfullscreen="true"
+                                    allow="autoplay; fullscreen; xr-spatial-tracking"
+                                    xr-spatial-tracking
+                                    execution-while-out-of-viewport
+                                    execution-while-not-rendered
+                                    web-share
+                                    src="https://sketchfab.com/models/d7b97787ea1a4d8eae8f7ff83370be80/embed"
+                                >
+                                </iframe>
+                            </div>
+                            <p>
+                                El cráneo del gibón de manos blancas tiene algunas características similares al de los humanos y otras distintivas. Identifica algunos elementos comunes o diferentes y revísalos con tu profesor de biología!
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
-            <!--SECCIÓN MOVILIZADA-->
-            <section class="container" id="seccion_movilizada">
-                <div class="row mb-5" id="final">
-                                <div class="col-12" style="position:relative; height:100px;">
-                                    <img src="archivos/cheetah.svg" width="400" height="400" alt="cheetah en velocidad">
-                                </div>
-                                <div class="col-12" style="position:relative; height:100px;">
-                                    <img src="archivos/caballo.svg" width="400" height="400" alt="caballo en velocidad">
-                                </div>
-                                <div class="col-12" style="position:relative; height:100px;">
-                                    <img src="archivos/rinoceronte.svg" width="400" height="400" alt="rinoceronte en velocidad">
-                                </div>
-                                <div class="col-12" style="position:relative; height:100px;">
-                                    <img src="archivos/gibon.svg" width="400" height="400" alt="gibon en velocidad">
-                                </div>
-                                <div class="col-12" style="position:relative; height:100px;">
-                                    <img src="archivos/gato.svg" width="400" height="400" alt="gato en velocidad">
-                                </div>
-                                <div class="col-12" style="position:relative; height:100px;">
-                                    <img src="archivos/humano.svg" width="400" height="400" alt="humano en velocidad">
-                                </div>
-                                <div class="col-12" style="position:relative; height:100px;">
-                                    <img src="archivos/raton.svg" width="400" height="400" alt="raton en velocidad">
-                                </div>
-                                <div class="col-12" style="position:relative; height:100px;">
-                                    <img src="archivos/perezoso.svg" width="400" height="400" alt="perezoso en velocidad">
-                                </div>
+
+            <!--LA PRESENCIA-->
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto my-5">
+                            <h3 class="text-center">Presencia</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="carruselConMapa" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="1000">
+                            <object class="d-block w-100" data="archivos/territorio_gibon_001.svg" type="image/svg+xml" title="territorio 1"></object>
+                            <div class="carousel-caption">
+                                <h5>Cobertura arborea</h5>
                             </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="1000">
+                            <object class="d-block w-100" data="archivos/territorio_gibon_002.svg" type="image/svg+xml" title="territorio 2"></object>
+                            <div class="carousel-caption">
+                                <h5>Deforestación</h5>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="1000">
+                            <object class="d-block w-100" data="archivos/territorio_gibon_003.svg" type="image/svg+xml" title="territorio 3"></object>
+                            <div class="carousel-caption">
+                                <h5>Agricultura</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--SECCIÓN CARRUSEL-->
+            <section class="container">
                 <div class="row">
                     <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <h3 class="text-center mt-5 mb-3">Sección movilizada</h3>
-                        <!--INTERACCIÓN-->
-                        <h4 class="text-center mt-5 mb-3">Interacción</h4>
-                        <div class="row">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                                <style type="text/css">
-                                    .lineas {
-                                        fill: none;
-                                        stroke: #585453;
-                                        stroke-linecap: round;
-                                        stroke-miterlimit: 10;
-                                    }
-                                </style>
-                                <path id="arriba" class="lineas" d="M5,50C5,50,57.7-5.9,110,5c52.3,10.9,85,80,85,80" />
-                                <path id="abajo" class="lineas" d="M25,35c0,0,14.1,55.5,75,60c59.5,4.4,70-45,70-45" />
-                                <circle id="iris" class="lineas" cx="105" cy="50" r="40" />
-                                <circle id="poca_luz" fill="back" cx="105" cy="50" r="35" />
-                                <ellipse id="mucha_luz" fill="back" cx="105" cy="50" rx="10" ry="35" class="d-none" />
-                            </svg>
+                        <h4 class="text-center my-5">Diferentes colores en diferentes lugares</h4>
+                        <!--VAMOS A INCLUIR TRES SVG EN UN CARRUSEL-->
+                        <div id="carruselConColores" class="carousel carousel-light slide carousel-fade my-3" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carruselConColores" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carruselConColores" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carruselConColores" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-bs-interval="1000">
+                                    <img src="archivos/colores1.jpg" class="w-100" />
+                                    <div class="carousel-caption text-white">
+                                        <h5>Blanco</h5>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" data-bs-interval="1000">
+                                    <img src="archivos/colores2.jpg" class="w-100" />
+                                    <div class="carousel-caption text-white">
+                                        <h5>Café</h5>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" data-bs-interval="1000">
+                                    <img src="archivos/colores3.jpg" class="w-100" />
+                                    <div class="carousel-caption text-white">
+                                        <h5>Negro</h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="small fw-bold text-center my-3">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="radioNocturno" value="nocturno" onchange="getValue(this)" checked />
-                                <label class="form-check-label" for="radioNocturno">Canto matutino</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="radioDiurno" value="diurno" onchange="getValue(this)" />
-                                <label class="form-check-label" for="radioDiurno">Baño y ejercicios</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="radioNocturno" value="nocturno" onchange="getValue(this)" checked />
-                                <label class="form-check-label" for="radioNocturno">Desayuno</label>
-                            </div>
-                            <!--Si la pantalla es chica paso a dos líneas para los botones, no funciona al momento de cambiar de tamaño-->
-                            <script>
-                                var width = window.innerWidth;
-                                if (width < 770) {
-                                    document.write("<br>");
-                                }
-                            </script>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="radioDiurno" value="diurno" onchange="getValue(this)" />
-                                <label class="form-check-label" for="radioDiurno">Descanso</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="radioNocturno" value="nocturno" onchange="getValue(this)" checked />
-                                <label class="form-check-label" for="radioNocturno">Almuerzo</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="radioDiurno" value="diurno" onchange="getValue(this)" />
-                                <label class="form-check-label" for="radioDiurno">Canto vespertino</label>
-                            </div>
-                            <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1355731432" title="gibon gritando"></iframe>
-                        </div>
+
                         <p>
                             Este es un lorem ipsum dolor sit amet, consectetur adipiscing elit. Pero no es un loren ipsum para papel, es para pantalla, donde
                             <a href="https://www.nngroup.com/articles/how-users-read-on-the-web/" target="_blank" title="How Users Read on the Web">es recomendable</a> <em>destacar palabras clave</em>, ofrecer
@@ -477,44 +511,47 @@ denomina <em>braquiación</em>.
                             <a href="https://www.nngroup.com/videos/biggest-mistake-writing-web/" target="_blank" title="The Biggest Mistake in Writing for the Web">tu público objetivo</a>) y usar el estilo de pirámide invertida (incluyendo
                             en cada pirámide lo que se acaba de <a href="https://youtu.be/iEB3oILm-qQ?t=2063" target="_blank" title="Charla del Dr. Mario García">mostrar o se mostrará</a> a continuación).
                         </p>
-                    </div>
-                </div>
-            </section>
-            <!--SECCIÓN CRÁNEO-->
-            <section class="container lazy" id="seccion_comparativa">
-                <div class="row">
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <h3 class="text-center mt-5 mb-3">Visualización educativa del cráneo</h3>
-                        <!--AGREGO CRÁNEO EN 3D-->
-                        <div class="col" align="center">
-                        <div class="sketchfab-embed-wrapper">
-                            <iframe
-                                title="White-handed gibbon skull and mandible"
-                                frameborder="0"
-                                allowfullscreen
-                                mozallowfullscreen="true"
-                                webkitallowfullscreen="true"
-                                allow="autoplay; fullscreen; xr-spatial-tracking"
-                                xr-spatial-tracking
-                                execution-while-out-of-viewport
-                                execution-while-not-rendered
-                                web-share
-                                src="https://sketchfab.com/models/d7b97787ea1a4d8eae8f7ff83370be80/embed"
-                            >
-                            </iframe>
-                            <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4a4a4a;">
-                                <a href="https://sketchfab.com/3d-models/white-handed-gibbon-skull-and-mandible-d7b97787ea1a4d8eae8f7ff83370be80?utm_medium=embed&utm_campaign=share-popup&utm_content=d7b97787ea1a4d8eae8f7ff83370be80">
-                                    Cráneo y mandíbula
-                                </a>
-                                por
-                                <a href="https://sketchfab.com/FloridaMuseum?utm_medium=embed&utm_campaign=share-popup&utm_content=d7b97787ea1a4d8eae8f7ff83370be80">
-                                    FloridaMuseum
-                                </a>
-                            </p>
+
+                        <ul class="nav justify-content-center py-3 my-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="btn rounded-pill btn-outline-primary active m-1" id="tab-matutino" data-bs-toggle="tab" data-bs-target="#matutino" type="button" role="tab" aria-controls="matutino" aria-selected="false">
+                                    Canto matutino
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="btn rounded-pill btn-outline-primary m-1" id="tab-almuerzo" data-bs-toggle="tab" data-bs-target="#almuerzo" type="button" role="tab" aria-controls="almuerzo" aria-selected="true">
+                                    Almuerzo
+                                </button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="btn rounded-pill btn-outline-primary m-1" id="tab-vespertino" data-bs-toggle="tab" data-bs-target="#vespertino" type="button" role="tab" aria-controls="vespertino" aria-selected="true">
+                                    Canto vespertino
+                                </button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active text-center" id="matutino" role="tabpanel" aria-labelledby="matutino">
+                                <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1355731432" title="gibon gritando" class="mx-auto my-3"></iframe>
+                                <p>Canto matutino</p>
+                            </div>
+                            <div class="tab-pane fade text-center" id="almuerzo" role="tabpanel" aria-labelledby="almuerzo">
+                                <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1355731432" title="gibon gritando" class="mx-auto my-3"></iframe>
+                                <p>Almuerzo</p>
+                            </div>
+                            <div class="tab-pane fade text-center" id="vespertino" role="tabpanel" aria-labelledby="vespertino">
+                                <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1355731432" title="gibon gritando" class="mx-auto my-3"></iframe>
+                                <p>Canto vespertino</p>
+                            </div>
                         </div>
-                        </div>
+
                         <p>
-                            El cráneo del gibón de manos blancas tiene algunas características similares al de los humanos y otras distintivas. Identifica algunos elementos comunes o diferentes y revísalos con tu profesor de biología!
+                            Este es un lorem ipsum dolor sit amet, consectetur adipiscing elit. Pero no es un loren ipsum para papel, es para pantalla, donde
+                            <a href="https://www.nngroup.com/articles/how-users-read-on-the-web/" target="_blank" title="How Users Read on the Web">es recomendable</a> <em>destacar palabras clave</em>, ofrecer
+                            <a href="https://www.nngroup.com/videos/plain-language-for-experts/" target="_blank" title="Plain Language For Everyone, Even Experts">una idea por párrafo</a> (que sea clara para
+                            <a href="https://www.nngroup.com/videos/biggest-mistake-writing-web/" target="_blank" title="The Biggest Mistake in Writing for the Web">tu público objetivo</a>) y usar el estilo de pirámide invertida (incluyendo
+                            en cada pirámide lo que se acaba de <a href="https://youtu.be/iEB3oILm-qQ?t=2063" target="_blank" title="Charla del Dr. Mario García">mostrar o se mostrará</a> a continuación).
                         </p>
                     </div>
                 </div>
@@ -643,19 +680,6 @@ denomina <em>braquiación</em>.
                 </div>
             </div>
         </footer>
-        <!-- UNA VEZ EL NAVEGADOR HAYA LEIDO TODO, PODEMOS MANIPULAR SU COMPRENSIÓN-->
-        <!--EL SIGUIENTE PROGRAMITA CAMBIA EL OJO-->
-        <script>
-            function getValue(radio) {
-                if (radio.value == "nocturno") {
-                    document.getElementById("poca_luz").classList.remove("d-none");
-                    document.getElementById("mucha_luz").classList.add("d-none");
-                } else {
-                    document.getElementById("poca_luz").classList.add("d-none");
-                    document.getElementById("mucha_luz").classList.remove("d-none");
-                }
-            }
-        </script>
         <!--BOOTSTRAP OFRECE SU PROPIA BIBLIOTECA DE JAVASCRIPT-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <!--CON ESTE CÓDIGO DE ACTIVA EL POPOVER SOBRE SU NOMBRE-->
@@ -695,22 +719,6 @@ denomina <em>braquiación</em>.
                     canto.pause();
                 }
             });
-        </script>
-        <!--PARA QUE LOS ANIMALES CORRÁN UNA VEZ LLEGUEMOS AL FINAL-->
-         <script>
-            var f = document.querySelector("#final").offsetTop;
-            addEventListener("scroll",function () {
-                if (f > window.scrollY) {
-                    document.querySelector("#final").querySelectorAll("img")[0].setAttribute("id", "cheetah");
-                    document.querySelector("#final").querySelectorAll("img")[1].setAttribute("id", "caballo");
-                    document.querySelector("#final").querySelectorAll("img")[2].setAttribute("id", "rinoceronte");
-                    document.querySelector("#final").querySelectorAll("img")[3].setAttribute("id", "gibon");
-                    document.querySelector("#final").querySelectorAll("img")[4].setAttribute("id", "gato");
-                    document.querySelector("#final").querySelectorAll("img")[5].setAttribute("id", "humano");
-                    document.querySelector("#final").querySelectorAll("img")[6].setAttribute("id", "raton");
-                    document.querySelector("#final").querySelectorAll("img")[7].setAttribute("id", "perezoso");
-                }
-            },false);
         </script>
     </body>
 </html>
